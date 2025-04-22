@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .dice {
+            width: 100px;
+            height: 100px;
+            margin: 20px auto;
+            background-size: cover;
+            transition: background-image 0.5s;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            font-size: 2em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .higher {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .lower {
+            background-color: #F44336;
+            color: white;
+        }
+
+        .message {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+        .scoreboard {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <p>Predict whether the proceeding roll will be <b>higher</b> or <b>lower</b> than the die's current value!</p>
+    <div class="container">
+        <h1>Dice-Roll Guessing Game!</h1>
+        <div class="dice" id="dice"></div>
+        <div class="buttons">
+            <button class="button higher" onclick="guess('higher')">⬆️</button>
+            <button class="button lower" onclick="guess('lower')">⬇️</button>
+        </div>
+        <div class="message" id="message"></div>
+        <div class="scoreboard">
+            <p>Correct Guess Streak: <span id="streak">0</span></p>
+        </div>
+    </div>
+    <script>
+        let currentDice = 3;
+        let streak = 0;
+
+        document.getElementById('dice').style.backgroundImage = `url('dice${currentDice}.png')`;
+
+        function rollDice() {
+            return Math.floor(Math.random() * 6) + 1;
+        }
+
+        function guess(direction) {
+            const newDice = rollDice();
+            const messageElement = document.getElementById('message');
+            const streakElement = document.getElementById('streak');
+
+            if ((direction === 'higher' && newDice > currentDice) || (direction === 'lower' && newDice < currentDice)) {
+                streak++;
+                messageElement.textContent = 'Correct!';
+            } else {
+                streak = 0;
+                messageElement.textContent = 'You lost, computers rule the earth!';
+            }
+
+            currentDice = newDice;
+            document.getElementById('dice').style.backgroundImage = `url('dice${currentDice}.png')`;
+            streakElement.textContent = streak;
+        }
+    </script>
+</body>
+</html>

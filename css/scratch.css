@@ -1,0 +1,86 @@
+.news{
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+.basic{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: rgb(239, 213, 225);
+    }
+    
+
+.header{
+    background-color: rgb(247, 168, 204);
+    height: 160px;
+    line-height: 0px;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 70px;
+    position: fixed;
+    top:0px;
+    right:0px;
+    left:0px;
+    z-index: 1;
+}
+
+.pages{
+    text-align: right;
+    padding-right: 15px;
+    position: fixed;
+    left:0px;
+    right:0px;
+    top:0px;
+    background-color:rgb(244, 188, 214);
+    line-height: 35px;
+    z-index: 3;
+    color: white;
+}
+
+a{
+    color: rgb(0, 0, 0);
+}
+
+a:hover{
+    background-color: rgb(246, 111, 172);
+    color: white
+}
+
+.nav{
+    background-color: rgb(247, 149, 193);
+    height: 50px;
+    line-height: 50px;
+    color: antiquewhite;
+}
+
+.style{
+    background-color: rgb(247, 168, 204);
+    margin-left: 330px;
+    margin-right: 330px;
+    height: 100px;
+    line-height: 30px;
+}
+
+.centered-list{
+    padding-left: 0;
+    list-style-position: outside;
+    margin: 0 auto;
+    display: table;
+    text-align: left;
+}
+
+.tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh; /* Adjust the height as needed */
+    width: 80%; /* Adjust the width as needed */
+    height: 500px; /* Adjust the height as needed */
+    padding-left: 150px;
+    padding-right: 150px;
+   }
+    
